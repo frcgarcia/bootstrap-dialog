@@ -62,6 +62,15 @@
 .bootstrap-dialog.size-large .bootstrap-dialog-message {
   font-size: 18px;
 }
+.bootstrap-dialog .bootstrap-dialog-footer-buttons .btn {
+  margin-right: 5px;
+}
+.bootstrap-dialog .bootstrap-dialog-footer-buttons .btn:last-child {
+  margin-right: 0;
+}
+.bootstrap-dialog-header {
+  width: 100%;
+}
 .bootstrap-dialog .icon-spin {
   display: inline-block;
   -moz-animation: spin 2s infinite linear;
