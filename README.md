@@ -13,6 +13,15 @@ Please note that this project targets **[Bootstrap v4.0+][bootstrap-docs]**.
 
 A live demo, examples, usage, and options are available here: [mcaskill.github.io/bootstrap-dialog][gh-pages]
 
+## Todo
+
+- Merge https://github.com/avan06/bootstrap3-dialog
+- Merge https://github.com/EugenMayer/bootstrap-dialog
+- Merge https://github.com/pYr0x/bootstrap-dialog
+- Merge https://gist.github.com/dominiclord/49d0a84cca789a5be3c532d8f0bc8b75
+- Merge https://github.com/GedMarc/bootstrap4-dialog
+- Merge https://github.com/firatoltulu/bootstrap3-dialog
+
 ## License
 
 [The MIT License](LICENSE.md)
