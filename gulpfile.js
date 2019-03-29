@@ -4,7 +4,7 @@
 
 var gulp      = require('gulp'),
     eslint    = require('gulp-eslint'),
-    less      = require('gulp-less'),
+    sass      = require('gulp-sass'),
     minifyCSS = require('gulp-minify-css'),
     path      = require('path'),
     notify    = require('gulp-notify'),
@@ -13,17 +13,20 @@ var gulp      = require('gulp'),
     concat    = require('gulp-concat'),
     uglify    = require('gulp-uglify');
 
-var less_src = [
-    'node_modules/bootstrap/less/variables.less',
-    'node_modules/bootstrap/less/mixins/*.less',
-    'src/less/bootstrap-dialog.less'
+sass.compiler = require('node-sass');
+
+var sass_src = [
+    'node_modules/bootstrap/scss/_functions.scss',
+    'node_modules/bootstrap/scss/_variables.scss',
+    'node_modules/bootstrap/scss/mixins/*.scss',
+    'src/sass/bootstrap-dialog.scss'
 ];
 
-gulp.task('less', function () {
-    gulp.src(less_src)
-        .pipe(concat('bootstrap-dialog.less'))
-        .pipe(gulp.dest('dist/less'))
-        .pipe(less())
+gulp.task('sass', function () {
+    gulp.src(sass_src)
+        .pipe(concat('bootstrap-dialog.scss'))
+        .pipe(gulp.dest('dist/sass'))
+        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(gulp.dest('dist/css'))
         .pipe(gulp.dest('src/css'))
         .pipe(rename('bootstrap-dialog.min.css'))
@@ -37,7 +40,7 @@ gulp.task('lint', function () {
         .pipe(eslint.format());
 });
 
-gulp.task('dist', [ 'clean', 'less' ], function () {
+gulp.task('dist', [ 'clean', 'sass' ], function () {
     gulp.src([ 'src/js/bootstrap-dialog.js' ])
         .pipe(gulp.dest('dist/js'))
         .pipe(rename('bootstrap-dialog.min.js'))

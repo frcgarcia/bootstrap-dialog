@@ -5,14 +5,14 @@
     "license": "MIT",
     "homepage": "http://mcaskill.github.io/bootstrap-dialog/",
     "main": [
-        "dist/less/bootstrap-dialog.less",
+        "dist/sass/bootstrap-dialog.scss",
         "dist/css/bootstrap-dialog.min.css",
         "dist/js/bootstrap-dialog.min.js"
     ],
     "keywords": [
         "css",
         "js",
-        "less",
+        "scss",
         "mobile-first",
         "responsive",
         "front-end",

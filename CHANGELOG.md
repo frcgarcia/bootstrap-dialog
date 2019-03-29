@@ -5,6 +5,7 @@ Changelog
 
 * Required Bootstrap v4+
 * Deprecated Bootstrap v3+
+* Replaced LESS with Sass
 
 ## v1.35.5 — TBD
 
