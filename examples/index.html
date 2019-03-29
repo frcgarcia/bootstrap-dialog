@@ -32,14 +32,14 @@
     </div>
     <p></p>
     <p>
-        Like it? See <a href="#available-options">Available Options</a> or try more <a href="#examples">Examples</a> below. 
+        Like it? See <a href="#available-options">Available Options</a> or try more <a href="#examples">Examples</a> below.
     </p>
-    
+
     <!-- Examples -->
     <a name="examples"></a>
     <h2>Examples</h2>
     <hr />
-    
+
     <h3>Simplest</h3>
     <p>Provide only the message to show, and keep all other things default.</p>
     <div class="source-code runnable">
@@ -49,7 +49,7 @@
         });
         -->
     </div>
-    
+
     <h3>Dialog Title</h3>
     <div class="source-code runnable">
         <!--
@@ -59,7 +59,7 @@
         });
         -->
     </div>
-    
+
     <a name="manipulating-title-message"></a>
     <h3>Manipulating Dialog Title</h3>
     <div class="source-code runnable">
@@ -81,7 +81,7 @@
         });
         -->
     </div>
-    
+
     <h3>Manipulating Dialog Message</h3>
     <div class="source-code runnable">
         <!--
@@ -116,7 +116,7 @@
         });
         -->
     </div>
-    
+
     <h3>Loading remote page (2)</h3>
     <p>
         Another solution of loading remote page into BootstrapDialog. <br />
@@ -129,7 +129,7 @@
                 var $message = $('<div></div>');
                 var pageToLoad = dialog.getData('pageToLoad');
                 $message.load(pageToLoad);
-        
+
                 return $message;
             },
             data: {
@@ -137,8 +137,8 @@
             }
         });
         -->
-    </div>    
-    
+    </div>
+
     <h3>Buttons</h3>
     <div class="source-code runnable">
         <!--
@@ -172,7 +172,7 @@
         });
         -->
     </div>
-    
+
     <h3>Manipulating Buttons</h3>
     <p>
         Buttons that created by BootstrapDialog have some extra functions available: <br />
@@ -195,7 +195,7 @@
                     event.data.$footerButton.stopSpin();
                     dialog.setClosable(true);
                 });
-                
+
                 return $content;
             },
             buttons: [{
@@ -211,11 +211,11 @@
         });
         -->
     </div>
-    
+
     <a name="button-hotkey"></a>
     <h3>Button Hotkey</h3>
     <p>
-        Try to press the keys that have been associated with buttons below. <br /> 
+        Try to press the keys that have been associated with buttons below. <br />
         The <strong>last button</strong> is disabled so nothing is going to happen when pressing its hotkey. <br />
         Please note that if there are some components that require keyboard operations in your dialog, conflicts may occur, you can try next example.
     </p>
@@ -250,7 +250,7 @@
         });
         -->
     </div>
-    
+
     <h3>Keys Conflicts</h3>
     <p>Try to avoid doing similar in your code.</p>
     <div class="source-code runnable">
@@ -300,7 +300,7 @@
         });
         -->
     </div>
-    
+
     <h3>Creating dialog instances</h3>
     <p>BootstrapDialog.show(...) is just a shortcut method, if you need dialog instances, use 'new'.</p>
     <div class="source-code runnable">
@@ -311,14 +311,14 @@
             message: 'Hi Apple!'
         });
         dialogInstance1.open();
-        
+
         // Construct by using setters
         var dialogInstance2 = new BootstrapDialog();
         dialogInstance2.setTitle('Dialog instance 2');
         dialogInstance2.setMessage('Hi Orange!');
         dialogInstance2.setType(BootstrapDialog.TYPE_SUCCESS);
         dialogInstance2.open();
-        
+
         // Using chain callings
         var dialogInstance3 = new BootstrapDialog()
             .setTitle('Dialog instance 3')
@@ -336,7 +336,7 @@
         });
         -->
     </div>
-    
+
     <h3>Open / Close multiple dialogs</h3>
     <p>This example demonstrates opening and closing a batch of dialogs at one time. <br />Dialog that created by BootstrapDialog will be in a container <strong>BootstrapDialog.dialogs</strong> before it's closed and destroyed, iterate <strong>BootstrapDialog.dialogs</strong> to find all dialogs that havn't been destroyed.</p>
     <div class="source-code runnable">
@@ -366,7 +366,7 @@
         }
         -->
     </div>
-    
+
     <h3>Button with identifier</h3>
     <div class="source-code runnable">
         <!--
@@ -385,17 +385,17 @@
         dialog.open();
         -->
     </div>
-    
+
     <h3>Message types</h3>
     <div class="source-code runnable">
         <!--
-        var types = [BootstrapDialog.TYPE_DEFAULT, 
-                     BootstrapDialog.TYPE_INFO, 
-                     BootstrapDialog.TYPE_PRIMARY, 
-                     BootstrapDialog.TYPE_SUCCESS, 
-                     BootstrapDialog.TYPE_WARNING, 
+        var types = [BootstrapDialog.TYPE_DEFAULT,
+                     BootstrapDialog.TYPE_INFO,
+                     BootstrapDialog.TYPE_PRIMARY,
+                     BootstrapDialog.TYPE_SUCCESS,
+                     BootstrapDialog.TYPE_WARNING,
                      BootstrapDialog.TYPE_DANGER];
-                     
+
         $.each(types, function(index, type){
             BootstrapDialog.show({
                 type: type,
@@ -404,22 +404,22 @@
                 buttons: [{
                     label: 'I do nothing.'
                 }]
-            });     
+            });
         });
         -->
     </div>
-    
+
     <a name="changing-dialog-type"></a>
     <h3>Changing dialog type</h3>
     <div class="source-code runnable">
         <!--
-        var types = [BootstrapDialog.TYPE_DEFAULT, 
-                     BootstrapDialog.TYPE_INFO, 
-                     BootstrapDialog.TYPE_PRIMARY, 
-                     BootstrapDialog.TYPE_SUCCESS, 
-                     BootstrapDialog.TYPE_WARNING, 
+        var types = [BootstrapDialog.TYPE_DEFAULT,
+                     BootstrapDialog.TYPE_INFO,
+                     BootstrapDialog.TYPE_PRIMARY,
+                     BootstrapDialog.TYPE_SUCCESS,
+                     BootstrapDialog.TYPE_WARNING,
                      BootstrapDialog.TYPE_DANGER];
-                     
+
         var buttons = [];
         $.each(types, function(index, type) {
             buttons.push({
@@ -438,7 +438,7 @@
         });
         -->
     </div>
-    
+
     <h3>Larger dialog</h3>
     <p>
         By default, the dialog size is 'size-normal' or BootstrapDialog.SIZE_NORMAL, but you can have a larger dialog by setting option 'size' to 'size-large' or BootstrapDialog.SIZE_LARGE.
@@ -469,7 +469,7 @@
         });
         -->
     </div>
-    
+
     <a name="more-dialog-sizes"></a>
     <h3>More dialog sizes</h3>
     <p>
@@ -508,7 +508,7 @@
         });
         -->
     </div>
-    
+
     <h3>Rich message</h3>
     <p>BootstrapDialog supports displaying rich content, so you can even use a video clip as your message in the dialog.</p>
     <div class="source-code runnable">
@@ -516,7 +516,7 @@
         var $textAndPic = $('<div></div>');
         $textAndPic.append('Who\'s this? <br />');
         $textAndPic.append('<img src="./images/pig.ico" />');
-        
+
         BootstrapDialog.show({
             title: 'Guess who that is',
             message: $textAndPic,
@@ -534,7 +534,7 @@
         });
         -->
     </div>
-    
+
     <h3>Dialog closable / unclosable</h3>
     <p>
         If option 'closable' is set to false, the default closing behaviors will be disabled, but you can still close the dialog by using dialog.close().
@@ -565,7 +565,7 @@
         });
         -->
     </div>
-    
+
     <a name="more-close-controls"></a>
     <h3>More controls on closing a dialog.</h3>
     <p>
@@ -589,7 +589,7 @@
         });
         -->
     </div>
-    
+
     <a name="dialog-animate"></a>
     <h3>Disabling Animation</h3>
     <p>
@@ -613,7 +613,7 @@
         });
         -->
     </div>
-    
+
     <h3>Auto spinning icon</h3>
     <p>
         Lazy guys must love this.
@@ -644,7 +644,7 @@
         });
         -->
     </div>
-    
+
     <a name="dialog-draggable"></a>
     <h3>Dialog Draggable</h3>
     <p>
@@ -665,7 +665,7 @@
         });
         -->
     </div>
-    
+
     <h3>Manipulating your dialog</h3>
     <div class="source-code runnable">
         <!--
@@ -677,7 +677,7 @@
                     event.data.dialogRef.close();
                 });
                 $message.append($button);
-        
+
                 return $message;
             },
             closable: false
@@ -690,7 +690,7 @@
         dialog.open();
         -->
     </div>
-    
+
     <h3>Adding additional css classes to your dialog</h3>
     <p>This is useful for applying effects to specific dialogs.<br />
     For example if you would like to give your 'login-dialog' a smaller size, you can do this way:</p>
@@ -719,7 +719,7 @@
         });
         -->
     </div>
-    
+
     <h3>Adding a description to your dialog (for accessibility)</h3>
     <p>This adds an 'aria-describedby' attribute to your dialog, which provides a description of the dialog for screen readers.</p>
     <div class="source-code runnable">
@@ -731,7 +731,7 @@
         });
         -->
     </div>
-    
+
     <h3>Data binding</h3>
     <div class="source-code runnable">
         <!--
@@ -757,7 +757,7 @@
         });
         -->
     </div>
-    
+
     <h3>Dialog events</h3>
     <p>
         Please note that if you're going to use setters to configure event handlers, use dialog.onShow(function) and dialog.onHide(function).
@@ -781,7 +781,7 @@
         });
         -->
     </div>
-    
+
     <a name="stop-closing-dialog"></a>
     <h3>Stop closing your dialog.</h3>
     <p>
@@ -808,7 +808,7 @@
         });
         -->
     </div>
-    
+
     <h2>More shortcut methods</h2>
     <hr />
     <h3>Alert</h3>
@@ -817,7 +817,7 @@
         BootstrapDialog.alert('Hi Apple!');
         -->
     </div>
-    
+
     <h3>Alert with callback</h3>
     <div class="source-code runnable">
         <!--
@@ -826,7 +826,7 @@
         });
         -->
     </div>
-    
+
     <a name="advanced-alert-window"></a>
     <h3>Customizing dialog type, title, and more.</h3>
     <p>All options shown below are optional.</p>
@@ -846,14 +846,14 @@
         });
         -->
     </div>
-    
+
     <h3>Confirm</h3>
     <div class="source-code runnable">
         <!--
         BootstrapDialog.confirm('Hi Apple, are you sure?');
         -->
     </div>
-    
+
     <h3>Confirm with callback</h3>
     <div class="source-code runnable">
         <!--
@@ -891,7 +891,7 @@
         });
         -->
     </div>
-    
+
     <a name="i18n-message"></a>
     <h3>I18N</h3>
     <p>To provide local messages for you needed, reset those messages below before using BootstrapDialog.</p>
@@ -908,7 +908,7 @@
         BootstrapDialog.DEFAULT_TEXTS['CONFIRM'] = 'Confirmation';
         -->
     </div>
-    
+
     <!-- Available options -->
     <a name="available-options"></a>
     <h2>Available options</h2>
@@ -997,8 +997,8 @@ BootstrapDialog.show({
     title: 'Say-hello dialog',
     message: 'Hello world!',
     buttons: [{
-        id: 'btn-ok',   
-        icon: 'glyphicon glyphicon-check',       
+        id: 'btn-ok',
+        icon: 'glyphicon glyphicon-check',
         label: 'OK',
         cssClass: 'btn-primary',
         data: {
@@ -1006,7 +1006,7 @@ BootstrapDialog.show({
             'user-id': '3'
         },
         autospin: false,
-        action: function(dialogRef){    
+        action: function(dialogRef){
             dialogRef.close();
         }
     }]
@@ -1117,9 +1117,9 @@ BootstrapDialog.show({
                 </td>
             </tr>
         </tbody>
-            
+
     </table>
-    
+
     <!-- Available methods -->
     <a name="available-methods"></a>
     <h2>Available methods</h2>
@@ -1190,9 +1190,9 @@ BootstrapDialog.show({
             </tr>
         </tbody>
     </table>
-    
+
     <hr />
-    <footer class="text-center"><a href="https://github.com/nakupanda/bootstrap3-dialog">Go to the project.</a> | <a href="mailto:javanoob@hotmail.com">Contact me</a> if you can help to improve this example page.</footer>
+    <footer class="text-center"><a href="https://github.com/mcaskill/bootstrap-dialog">Go to the project.</a> | <a href="mailto:javanoob@hotmail.com">Contact me</a> if you can help to improve this example page.</footer>
 </div>
 
 <script type="text/javascript">
@@ -1200,12 +1200,12 @@ $(function(){
     $('.source-code').each(function(index){
         var $section = $(this);
         var code = $(this).html().replace('<!--', '').replace('-->', '');
-        
+
         // Code preview
         var $codePreview = $('<pre class="prettyprint lang-javascript"></pre>');
         $codePreview.text(code);
         $section.html($codePreview);
-        
+
         // Run code
         if($section.hasClass('runnable')){
             var $button = $('<button class="btn btn-primary">Run the code</button>');

@@ -3,11 +3,11 @@
 /* ================================================
  * Make use of Bootstrap's modal more monkey-friendly.
  *
- * For Bootstrap 3.
+ * For Bootstrap 4.
  *
  * javanoob@hotmail.com
  *
- * https://github.com/nakupanda/bootstrap3-dialog
+ * https://github.com/mcaskill/bootstrap-dialog
  *
  * Licensed under The MIT License.
  * ================================================ */
@@ -86,21 +86,23 @@
             $(document).off('focusin.bs.modal');
 
             this.$element
-            .removeClass('in')
-            .attr('aria-hidden', true)
-            .off('click.dismiss.bs.modal');
+                .removeClass('in')
+                .attr('aria-hidden', true)
+                .off('click.dismiss.bs.modal');
 
-            $.support.transition && this.$element.hasClass('fade') ?
-            this.$element
-            .one('bsTransitionEnd', $.proxy(this.hideModal, this))
-            .emulateTransitionEnd(300) :
-            this.hideModal();
+            if ($.support.transition && this.$element.hasClass('fade')) {
+                this.$element
+                    .one('bsTransitionEnd', $.proxy(this.hideModal, this))
+                    .emulateTransitionEnd(300);
+            } else {
+                this.hideModal();
+            }
         }
     };
     BootstrapDialogModal.METHODS_TO_OVERRIDE['v3.3'] = {
         /**
          * Overrided.
-         * 
+         *
          * @returns {undefined}
          */
         setScrollbar: function () {
@@ -111,7 +113,7 @@
         },
         /**
          * Overrided.
-         * 
+         *
          * @returns {undefined}
          */
         resetScrollbar: function () {
@@ -122,7 +124,7 @@
         },
         /**
          * Overrided.
-         * 
+         *
          * @returns {undefined}
          */
         hideModal: function () {
@@ -143,7 +145,7 @@
         constructor: BootstrapDialogModal,
         /**
          * New function, to get the dialogs that opened by BootstrapDialog.
-         * 
+         *
          * @returns {undefined}
          */
         getGlobalOpenedDialogs: function () {
@@ -268,7 +270,7 @@
 
     /**
      * Get dialog instance by given id.
-     * 
+     *
      * @returns dialog instance
      */
     BootstrapDialog.getDialog = function (id) {
@@ -282,7 +284,7 @@
 
     /**
      * Set a dialog.
-     * 
+     *
      * @returns the dialog that has just been set.
      */
     BootstrapDialog.setDialog = function (dialog) {
@@ -293,7 +295,7 @@
 
     /**
      * Alias of BootstrapDialog.setDialog(dialog)
-     * 
+     *
      * @param {type} dialog
      * @returns {unresolved}
      */
@@ -327,7 +329,7 @@
         },
         /**
          * To make multiple opened dialogs look better.
-         * 
+         *
          * Will be removed in later version, after Bootstrap Modal >= 3.3.0, updating z-index is unnecessary.
          */
         updateZIndex: function () {
@@ -377,18 +379,18 @@
         },
         initModalStuff: function () {
             this.setModal(this.createModal())
-            .setModalDialog(this.createModalDialog())
-            .setModalContent(this.createModalContent())
-            .setModalHeader(this.createModalHeader())
-            .setModalBody(this.createModalBody())
-            .setModalFooter(this.createModalFooter());
+                .setModalDialog(this.createModalDialog())
+                .setModalContent(this.createModalContent())
+                .setModalHeader(this.createModalHeader())
+                .setModalBody(this.createModalBody())
+                .setModalFooter(this.createModalFooter());
 
             this.getModal().append(this.getModalDialog());
             this.getModalDialog().append(this.getModalContent());
             this.getModalContent()
-            .append(this.getModalHeader())
-            .append(this.getModalBody())
-            .append(this.getModalFooter());
+                .append(this.getModalHeader())
+                .append(this.getModalBody())
+                .append(this.getModalFooter());
 
             return this;
         },
@@ -509,12 +511,14 @@
         },
         updateType: function () {
             if (this.isRealized()) {
-                var types = [BootstrapDialog.TYPE_DEFAULT,
+                var types = [
+                    BootstrapDialog.TYPE_DEFAULT,
                     BootstrapDialog.TYPE_INFO,
                     BootstrapDialog.TYPE_PRIMARY,
                     BootstrapDialog.TYPE_SUCCESS,
                     BootstrapDialog.TYPE_WARNING,
-                    BootstrapDialog.TYPE_DANGER];
+                    BootstrapDialog.TYPE_DANGER
+                ];
 
                 this.getModal().removeClass(types.join(' ')).addClass(this.getType());
             }
@@ -535,10 +539,11 @@
                 var dialog = this;
 
                 // Dialog size
-                this.getModal().removeClass(BootstrapDialog.SIZE_NORMAL)
-                .removeClass(BootstrapDialog.SIZE_SMALL)
-                .removeClass(BootstrapDialog.SIZE_WIDE)
-                .removeClass(BootstrapDialog.SIZE_LARGE);
+                this.getModal()
+                    .removeClass(BootstrapDialog.SIZE_NORMAL)
+                    .removeClass(BootstrapDialog.SIZE_SMALL)
+                    .removeClass(BootstrapDialog.SIZE_WIDE)
+                    .removeClass(BootstrapDialog.SIZE_LARGE);
                 this.getModal().addClass(this.getSize());
 
                 // Smaller dialog.
@@ -556,7 +561,11 @@
                 // Button size
                 $.each(this.options.buttons, function (index, button) {
                     var $button = dialog.getButton(button.id);
-                    var buttonSizes = ['btn-lg', 'btn-sm', 'btn-xs'];
+                    var buttonSizes = [
+                        'btn-lg',
+                        'btn-sm',
+                        'btn-xs'
+                    ];
                     var sizeClassSpecified = false;
                     if (typeof button['cssClass'] === 'string') {
                         var btnClasses = button['cssClass'].split(' ');
@@ -1075,7 +1084,7 @@
                 }
                 BootstrapDialog.moveFocus();
                 if ($('.modal').hasClass('in')) {
-                  $('body').addClass('modal-open');
+                    $('body').addClass('modal-open');
                 }
             });
 
@@ -1138,8 +1147,9 @@
         },
         realize: function () {
             this.initModalStuff();
-            this.getModal().addClass(BootstrapDialog.NAMESPACE)
-            .addClass(this.getCssClass());
+            this.getModal()
+                .addClass(BootstrapDialog.NAMESPACE)
+                .addClass(this.getCssClass());
             this.updateSize();
             if (this.getDescription()) {
                 this.getModal().attr('aria-describedby', this.getDescription());

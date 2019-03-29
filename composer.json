@@ -1,15 +1,23 @@
 {
-    "name": "cross-solution/bootstrap3-dialog",
+    "type": "library",
+    "name": "mcaskill/bootstrap-dialog",
     "description": "Make use of Bootstrap Modal more monkey-friendly.",
     "license": "MIT",
+    "homepage": "http://mcaskill.github.io/bootstrap-dialog",
     "authors": [
-        {
-            "name": "Nakupanda",
-            "email": "javanoob@hotmail.com"
-        }
+        "mcaskill",
+        "dominiclord",
+        "pYr0x",
+        "EugenMayer",
+        "avan06",
+        "nakupanda"
+    ],
+    "keywords": [
+        "bootstrap",
+        "dialog"
     ],
     "require": {
-	"components/jquery": "*",
-	"twbs/bootstrap": "3.*"
+        "components/jquery": ">=1.9.1",
+        "twitter/bootstrap": ">=4.0.0"
     }
 }

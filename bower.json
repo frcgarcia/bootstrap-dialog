@@ -1,7 +1,14 @@
 {
-    "name": "bootstrap3-dialog",
-    "description": "Make use of Bootstrap Modal more monkey-friendly. http://nakupanda.github.io/bootstrap3-dialog/",
-    "version": "1.35.4",
+    "name": "bootstrap4-dialog",
+    "version": "2.0.0",
+    "description": "Make use of Bootstrap Modal more monkey-friendly. http://mcaskill.github.io/bootstrap-dialog/",
+    "license": "MIT",
+    "homepage": "http://mcaskill.github.io/bootstrap-dialog/",
+    "main": [
+        "dist/less/bootstrap-dialog.less",
+        "dist/css/bootstrap-dialog.min.css",
+        "dist/js/bootstrap-dialog.min.js"
+    ],
     "keywords": [
         "css",
         "js",
@@ -12,13 +19,6 @@
         "framework",
         "web"
     ],
-    "homepage": "http://nakupanda.github.io/bootstrap3-dialog/",
-    "main": [
-        "dist/less/bootstrap-dialog.less",
-        "dist/css/bootstrap-dialog.min.css",
-        "dist/js/bootstrap-dialog.min.js"
-    ],
-    "license": "MIT",
     "ignore": [
         "source",
         "spec",
@@ -32,7 +32,7 @@
         "README.md"
     ],
     "dependencies": {
-        "bootstrap": ">= 3.1.0",
-        "jquery": ">= 1.9.0"
+        "bootstrap": ">=4.0.0",
+        "jquery": ">=1.9.1"
     }
 }
