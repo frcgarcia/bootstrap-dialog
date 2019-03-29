@@ -3,12 +3,12 @@
 'use strict';
 
 var gulp      = require('gulp'),
+    del       = require('del'),
     eslint    = require('gulp-eslint'),
     sass      = require('gulp-sass'),
-    minifyCSS = require('gulp-minify-css'),
+    cleanCSS  = require('gulp-clean-css'),
     path      = require('path'),
     notify    = require('gulp-notify'),
-    clean     = require('gulp-clean'),
     rename    = require('gulp-rename'),
     concat    = require('gulp-concat'),
     uglify    = require('gulp-uglify');
@@ -23,25 +23,29 @@ var sass_src = [
 ];
 
 gulp.task('sass', function () {
-    gulp.src(sass_src)
+    return gulp.src(sass_src)
         .pipe(concat('bootstrap-dialog.scss'))
         .pipe(gulp.dest('dist/sass'))
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(gulp.dest('dist/css'))
         .pipe(gulp.dest('src/css'))
         .pipe(rename('bootstrap-dialog.min.css'))
-        .pipe(minifyCSS())
+        .pipe(cleanCSS())
         .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('lint', function () {
-    gulp.src([ 'src/js/bootstrap-dialog.js' ])
+    return gulp.src([ 'src/js/bootstrap-dialog.js' ])
         .pipe(eslint())
         .pipe(eslint.format());
 });
 
-gulp.task('dist', [ 'clean', 'sass' ], function () {
-    gulp.src([ 'src/js/bootstrap-dialog.js' ])
+gulp.task('clean', function () {
+    return del([ 'dist/' ]);
+});
+
+gulp.task('dist', gulp.series([ 'clean', 'sass' ], function () {
+    return gulp.src([ 'src/js/bootstrap-dialog.js' ])
         .pipe(gulp.dest('dist/js'))
         .pipe(rename('bootstrap-dialog.min.js'))
         .pipe(uglify())
@@ -49,14 +53,6 @@ gulp.task('dist', [ 'clean', 'sass' ], function () {
         .pipe(notify({
             message: 'Build task completed.'
         }));
-});
+}));
 
-gulp.task('clean', function () {
-    return gulp.src([ 'dist/' ], {
-        read: false
-    }).pipe(clean());
-});
-
-gulp.task('default', [ 'clean' ], function () {
-    gulp.start('dist');
-});
+gulp.task('default', gulp.series('dist'));
