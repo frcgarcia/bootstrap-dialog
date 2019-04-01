@@ -54,8 +54,10 @@
             version = 'v3.2';
         } else if (/3\.3\.[1,2]/.test($.fn.modal.Constructor.VERSION)) {
             version = 'v3.3';  // v3.3.1, v3.3.2
-        } else if (/4\.\d+/.test($.fn.modal.Constructor.VERSION)) {
+        } else if (/4\.0\.\d+/.test($.fn.modal.Constructor.VERSION)) {
             version = 'v4.0';
+        } else if (/4\.1\.\d+/.test($.fn.modal.Constructor.VERSION)) {
+            version = 'v4.1'; // v4.1.0, v4.1.1, v4.1.2, v4.1.3
         } else {
             version = 'v3.3.4';
         }
@@ -148,6 +150,8 @@
     };
     BootstrapDialogModal.METHODS_TO_OVERRIDE['v3.3.4'] = $.extend({}, BootstrapDialogModal.METHODS_TO_OVERRIDE['v3.3']);
     BootstrapDialogModal.METHODS_TO_OVERRIDE['v4.0'] = $.extend({}, BootstrapDialogModal.METHODS_TO_OVERRIDE['v3.3']);
+    BootstrapDialogModal.METHODS_TO_OVERRIDE['v4.1'] = $.extend({}, BootstrapDialogModal.METHODS_TO_OVERRIDE['v4.0']);
+
     BootstrapDialogModal.prototype = {
         constructor: BootstrapDialogModal,
         /**
@@ -383,6 +387,8 @@
             return this.getModal().get(0);
         }
     };
+    BootstrapDialog.METHODS_TO_OVERRIDE['v4.1'] = $.extend({}, BootstrapDialog.METHODS_TO_OVERRIDE['v4.0']);
+
     BootstrapDialog.prototype = {
         constructor: BootstrapDialog,
         initOptions: function (options) {
@@ -434,7 +440,7 @@
             return this.getModal();
         },
         createModalDialog: function () {
-            return $('<div class="modal-dialog"></div>');
+            return $('<div class="modal-dialog" role="document"></div>');
         },
         getModalDialog: function () {
             return this.$modalDialog;
@@ -796,20 +802,20 @@
             $container.append(this.createTitleContent());
 
             // Close button
-            $container.prepend(this.createCloseButton());
+            $container.append(this.createCloseButton());
 
             return $container;
         },
         createTitleContent: function () {
-            var $title = $('<div></div>');
-            $title.addClass(this.getNamespace('title'));
+            var $title = $('<h5></h5>');
+            $title.addClass(this.getNamespace('title')).addClass('modal-title');
 
             return $title;
         },
         createCloseButton: function () {
             var $container = $('<div></div>');
             $container.addClass(this.getNamespace('close-button'));
-            var $icon = $('<button class="close" aria-label="close"></button>');
+            var $icon = $('<button type="button" class="close" aria-label="Close"></button>');
             $icon.append(this.options.closeIcon);
             $container.append($icon);
             $container.on('click', {dialog: this}, function (event) {
@@ -856,7 +862,7 @@
             return $container;
         },
         createButton: function (button) {
-            var $button = $('<button class="btn"></button>');
+            var $button = $('<button type="button" class="btn"></button>');
             $button.prop('id', button.id);
             $button.data('button', button);
 
